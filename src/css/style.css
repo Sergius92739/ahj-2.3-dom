@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+#container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #107726;
+}
+
+.table_head th:nth-child(1) {
+  width: 10%;
+}
+
+.table_head th:nth-child(2) {
+  width: 60%;
+}
+
+.table_head th:nth-child(3) {
+  width: 15%;
+}
+
+.table_head th:nth-child(4) {
+  width: 15%;
+}
+
+th, td {
+  padding: 20px;
+}
+
+.table_head th, .table_footer th {
+  font-family: cursive;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+.table_body td {
+  text-align: center;
+}
+
+.table_footer th {
+  text-align: right;
+}
+
+.table_head, .table_footer {
+  background: url(../img/depositphotos_11516226-stock-photo-green-abstract-background.jpg);
+  color: white;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.table_head th, .table_footer th, .table_footer td {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+  border: 3px solid #107726
+}
+
+.table_body tr:nth-child(odd) {
+  background-color: #107726;
+}
+
+.table_body tr:nth-child(even) {
+  background-color: #5f8b69;
+}
+
+.table_body tr {
+  background-image: url(../img/noise.png);
+}
+
+.table {
+  background-color: #5f8b69;
+}
+
+.table_title {
+  font-family: cursive;
+  padding: 20px;
+  font-style: italic;
+  caption-side: bottom;
+  color: #666;
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+
