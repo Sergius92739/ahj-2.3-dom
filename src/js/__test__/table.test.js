@@ -44,7 +44,8 @@ test('Метод drawTable создает html-разметку', () => {
 });
 
 test('Метод getSort должен отсортировать по id по возрастанию', () => {
-  testTable.getSort(testTable.dataSort[0]);
+  testTable.getSortData(testTable.dataSort[0]);
+  testTable.drawTable();
   const tbody = document.querySelector('.table_body');
   expect(tbody.children[0].children[0].textContent).toBe('25');
   expect(tbody.children[1].children[0].textContent).toBe('26');
@@ -55,7 +56,8 @@ test('Метод getSort должен отсортировать по id по в
 
 test('Метод getSort должен отсортировать по id по убыванию', () => {
   testTable.isAscent = false;
-  testTable.getSort(testTable.dataSort[0]);
+  testTable.getSortData(testTable.dataSort[0]);
+  testTable.drawTable();
   const tbody = document.querySelector('.table_body');
   expect(tbody.children[0].children[0].textContent).toBe('1047');
   expect(tbody.children[1].children[0].textContent).toBe('223');
@@ -66,7 +68,8 @@ test('Метод getSort должен отсортировать по id по у
 
 test('Метод getSort должен отсортировать по названию по убыванию', () => {
   testTable.isAscent = true;
-  testTable.getSort(testTable.dataSort[2]);
+  testTable.getSortData(testTable.dataSort[2]);
+  testTable.drawTable();
   const tbody = document.querySelector('.table_body');
   expect(tbody.children[0].children[1].textContent).toBe('Криминальное чтиво');
   expect(tbody.children[1].children[1].textContent).toBe('Крёстный отец');
@@ -77,7 +80,8 @@ test('Метод getSort должен отсортировать по назва
 
 test('Метод getSort должен отсортировать по названию по возрастанию', () => {
   testTable.isAscent = false;
-  testTable.getSort(testTable.dataSort[2]);
+  testTable.getSortData(testTable.dataSort[2]);
+  testTable.drawTable();
   const tbody = document.querySelector('.table_body');
   expect(tbody.children[0].children[1].textContent).toBe('Тёмный рыцарь');
   expect(tbody.children[1].children[1].textContent).toBe('Побег из Шоушенка');
@@ -86,18 +90,20 @@ test('Метод getSort должен отсортировать по назва
   expect(tbody.children[4].children[1].textContent).toBe('Криминальное чтиво');
 });
 
-test('Метод addArrow должен добавить стрелку ⇓ элементу c data-name="id" в тэге thead', () => {
-  testTable.isAscent = true;
-  testTable.getSort(testTable.dataSort[0]);
-  testTable.addArrow();
-  expect(document.querySelector('[data-name="id"]').children[0].innerHTML).toBe('⇓');
-});
-
 test('Метод addArrow должен добавить стрелку ⇑ элементу c data-name="id" в тэге thead', () => {
-  testTable.isAscent = false;
-  testTable.getSort(testTable.dataSort[0]);
+  testTable.isAscent = true;
+  testTable.getSortData(testTable.dataSort[0]);
+  testTable.drawTable();
   testTable.addArrow();
   expect(document.querySelector('[data-name="id"]').children[0].innerHTML).toBe('⇑');
+});
+
+test('Метод addArrow должен добавить стрелку ⇓ элементу c data-name="id" в тэге thead', () => {
+  testTable.isAscent = false;
+  testTable.getSortData(testTable.dataSort[0]);
+  testTable.drawTable();
+  testTable.addArrow();
+  expect(document.querySelector('[data-name="id"]').children[0].innerHTML).toBe('⇓');
 });
 
 jest.useFakeTimers();
